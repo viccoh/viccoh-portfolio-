@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TimeTech</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--boxicons liink-->
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+ <!--google font-->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+<script>
+const themeButton = document.getElementById('theme-button')
+const darkTheme = 'dark-theme'
+const iconTheme = 'bx-sun'
+
+// Previously selected topic (if user selected)
+const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
+
+// We obtain the current theme that the interface has by validating the dark-theme class
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx bx-moon' : 'bx bx-sun'
+
+// We validate if the user previously chose a topic
+if (selectedTheme) {
+  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+  themeButton.classList[selectedIcon === 'bx bx-moon' ? 'add' : 'remove'](iconTheme)
+}
+
+// Activate / deactivate the theme manually with the button
+themeButton.addEventListener('click', () => {
+    // Add or remove the dark / icon theme
+    document.body.classList.toggle(darkTheme)
+    themeButton.classList.toggle(iconTheme)
+    // We save the theme and the current icon that the user chose
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    localStorage.setItem('selected-icon', getCurrentIcon())
+})       
+</script>
+</head>
+<body>
+
+     <!--header-->
+     <header>
+        <a href="#" class="logo"><i class='bx bx-stopwatch'></i>TimeTech </a>
+        <ul class="navlist">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="smartwatch.html">SmartWatch</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <div class="h-main">
+            <a href="#"class="h-btn">Buy Now</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <div class="bx bx-moon" id="darkmode"></div>
+
+        </div>
+     </header>
+
+     <!--hero section-->
+     <section class="hero">
+        <div class="hero-text">
+            <h1>watch</h1>
+            <h4> Element serie</h4>
+            <p>Introducing the ultimate fusion of style and innovation - our smartwatches. Elevate your daily routine with cutting-edge technology wrapped in sleek, modern designs. Stay connected, track your fitness, and access essential information at a glance. Experience the future on your wrist. Discover the perfect smartwatch for your lifestyle today. </p>
+            <div class="hero-in">
+                <div class="box">
+                    <h3>White</h3>
+                    <h5>Element</h5>
+                    <img src="img/main1.png" alt="smartwatch">
+                </div>
+
+                <div class="box">
+                    <h3>Black</h3>
+                    <h5>Element</h5>
+                    <img src="img/main2.png" alt="smartwatch">
+                </div>
+                    <div class="box">
+                        <h3>white</h3>
+                        <h5>Element</h5>
+                        <img src="img/main1.png" alt="smartwatch">
+                    </div>
+
+                </div>
+            </div>
+        <div class="hero-img">
+            <img src="img/hero.png" alt="hero-image">
+        </div>
+     </section>
+
+     <div class="down-arrow">
+        <i class="bx bx-down-arrow-alt"></i>
+     </div>
+
+     <script src="https://unpkg.com/scrollreveal"></script>
+     
+</body>
+</html>
